@@ -1,0 +1,19 @@
+- wallet_options = Wallet.all.collect {|w| [ "#{w.owner_name}(WalletID: #{w.id})", w.id ] }
+
+= form_for transaction, url: url do |f|
+  - transaction.errors.full_messages.each do |msg|
+    p style="color: red"
+      = msg
+  - unless transaction.withdraw?
+    p
+      = f.label :target, "Target Wallet ID: "
+      = f.select("target", wallet_options, { include_blank: true })
+  - unless transaction.deposit?
+    p
+      = f.label :source, "Source Wallet ID: "
+      = f.select("source", wallet_options, { include_blank: true })
+  p
+    = f.label :amount, "Amount: "
+    = f.number_field :amount
+  p
+    = f.submit "Create"

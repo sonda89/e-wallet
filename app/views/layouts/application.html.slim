@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title E-Wallet
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  body style="width: 800px; margin: auto"
+    p
+      = link_to "Wallets | ", wallets_path
+      = link_to "Transactions | ", transactions_path
+      = link_to "Deposit | ", new_deposit_transaction_path
+      = link_to "Withdraw | ", new_withdraw_transaction_path
+      = link_to "Transfer |", new_transfer_transaction_path
+    p
+      - flash.each do |type, msg|
+        = msg
+    = yield

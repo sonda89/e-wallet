@@ -1,0 +1,20 @@
+h1 Edit wallet
+= form_for @wallet, as: :wallet, url: wallet_path(@wallet), method: :put do |f|
+  - @wallet.errors.full_messages.each do |msg|
+    p style="color: red"
+      = msg
+  p
+    = f.label :type, "Wallet Type: "
+    i
+      = @wallet.type
+  p
+    = f.label :owner_name, "Owner Name: "
+    = f.text_field :owner_name
+
+  p
+    = f.label :balance, "Balance: "
+    i
+      = @wallet.balance
+
+  p
+    = f.submit "Update"
