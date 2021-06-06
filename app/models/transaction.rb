@@ -15,6 +15,8 @@ class Transaction < ApplicationRecord
 
   def exec
     Wallet.transaction do
+      return success! if source_wallet == target_wallet
+
       if source_wallet.present?
         source_wallet.assign_attributes(balance: source_wallet.balance - amount)
         source_wallet.save!

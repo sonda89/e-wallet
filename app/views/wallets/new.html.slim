@@ -2,7 +2,7 @@ h1 Add new wallet
 - type_options = Wallet::WALLET_TYPES
 
 = form_for @wallet do |f|
-  - wallet.errors.full_messages.each do |msg|
+  - @wallet.errors.full_messages.each do |msg|
     p style="color: red"
       = msg
   p
@@ -12,10 +12,5 @@ h1 Add new wallet
   p
     = f.label :owner_name, "Owner Name: "
     = f.text_field :owner_name
-
-  p
-    = f.label :balance, "Balance: "
-    = f.number_field :balance
-
   p
     = f.submit "Create"

@@ -49,7 +49,7 @@ class WalletsController < ApplicationController
   private
 
   def wallet_params
-    params.require(:wallet).permit(:owner_name, :balance, :type)
+    params.require(:wallet).permit(:owner_name, :type)
   end
 
   def load_wallet
