@@ -1,0 +1,23 @@
+h1 Transaction List
+table
+  tr
+    th Transaction Type
+    th Source Wallet
+    th Target Wallet
+    th Amount
+    th Status
+    th Reason
+  - @transactions.each do |transaction|
+    tr
+      td
+        = transaction.transaction_type
+      td
+        = transaction.source_wallet_owner_name
+      td
+        = transaction.target_wallet_owner_name
+      td
+        = transaction.amount
+      td
+        = transaction.status
+      td
+        = transaction.reason

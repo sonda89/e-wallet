@@ -1,0 +1,23 @@
+h1 Wallet List
+p
+  = link_to "Add new wallet", new_wallet_path
+table
+  tr
+    th Id
+    th Owner Name
+    th Type
+    th Balance
+    th Actions
+  - @wallets.each do |wallet|
+    tr
+      td
+        = wallet.id
+      td
+        = wallet.owner_name
+      td
+        = wallet.type
+      td
+        = wallet.balance
+      td
+        = link_to "Edit | ", edit_wallet_path(wallet)
+        = link_to "Delete", wallet_path(wallet), method: :delete, data: { confirm: "Are you sure?" }
