@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_06_06_090550) do
     t.integer "status", default: 0, null: false
     t.integer "source"
     t.integer "target"
-    t.integer "amount"
+    t.decimal "amount"
     t.string "reason"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_06_06_090550) do
   create_table "wallets", force: :cascade do |t|
     t.string "owner_name"
     t.string "type"
-    t.integer "balance"
+    t.decimal "balance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
